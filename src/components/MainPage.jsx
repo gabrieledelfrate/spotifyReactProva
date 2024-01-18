@@ -1,22 +1,22 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { fetchSearchResults, fetchRandomArtists } from '../redux/actions';
+import { setSearchResults, fetchRandomArtist } from '../redux/action';
 
 const MainPage = () => {
   const dispatch = useDispatch();
   const searchResults = useSelector((state) => state.searchResults);
 
   useEffect(() => {
-    dispatch(fetchRandomArtists('rock', '#rockSection'));
-    dispatch(fetchRandomArtists('pop', '#popSection'));
-    dispatch(fetchRandomArtists('hiphop', '#hipHopSection'));
+    dispatch(fetchRandomArtist('rock', '#rockSection'));
+    dispatch(fetchRandomArtist('pop', '#popSection'));
+    dispatch(fetchRandomArtist('hiphop', '#hipHopSection'));
   }, [dispatch]);
 
   const handleSearch = () => {   
     const searchQuery = document.querySelector('#searchField').value;
     if (searchQuery.length > 2) {
-      dispatch(fetchSearchResults(searchQuery));
+      dispatch(setSearchResults(searchQuery));
     }
   };
 

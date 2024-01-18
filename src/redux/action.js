@@ -65,6 +65,4 @@ export const setRandomArtist = (artist) => ({
         console.error('Error:', error);
       }
     };
-  };
-  
-  
+  }; 

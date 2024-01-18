@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import MainPage from './components/MainPage';
 import PlayerControls from './components/PlayerControls';
@@ -10,9 +10,9 @@ function App() {
       <div className="container-fluid">
         <div className="row">
           <Route path="/" component={Sidebar} />
-          <Switch>
+          <BrowserRouter>
             <Route path="/main" component={MainPage} />
-          </Switch>
+          </BrowserRouter>
         </div>
       </div>
       <PlayerControls />
